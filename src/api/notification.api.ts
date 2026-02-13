@@ -2,7 +2,7 @@ import { api } from './axios';
 
 export const notificationApi = {
   
-  getAll: async (): Promise<Notification[]> => {
+  getAll: async ()=> {
     const response = await api.get('/notifications');
     return response.data;
   },
