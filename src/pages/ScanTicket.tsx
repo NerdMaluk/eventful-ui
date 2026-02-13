@@ -18,9 +18,9 @@ export default function ScanTicket() {
     scanner.render(onScanSuccess, onScanError);
 
     async function onScanSuccess(decodedText: string) {
-      // Quando ler o QR Code, para o scanner e valida no backend
+    
       try {
-        // O valor vindo do QR Code é o ticket.id que geramos no passo anterior
+        
         const res = await scanTicket(decodedText); 
         setResult({ success: true, message: `Check-in Successful: ${res.attendee?.name || 'Ticket Valid'}` });
         scanner.clear(); // Para a câmera após sucesso
@@ -31,7 +31,8 @@ export default function ScanTicket() {
     }
 
     function onScanError(err: any) {
-      // Erros de leitura (comum enquanto a câmera foca) - ignoramos
+      console.error(err);
+      
     }
 
     return () => {
