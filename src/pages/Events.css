@@ -1,0 +1,16 @@
+.events-container {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.events-container h2 {
+  margin-bottom: 24px;
+  color: #2563eb;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}

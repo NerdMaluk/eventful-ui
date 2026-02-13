@@ -1,0 +1,13 @@
+.ticket-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 400px;
+}
+
+.ticket-card img {
+  width: 150px;
+  margin-top: 12px;
+}

@@ -1,0 +1,67 @@
+.history-page {
+  padding: 2.5rem;
+  background-color: #f4f7fe;
+  min-height: 100vh;
+}
+
+.history-header h1 {
+  color: #1b2559;
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.history-header p {
+  color: #a3aed0;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.table-container {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 700;
+  color: #1b2559;
+}
+
+.user-email {
+  font-size: 0.75rem;
+  color: #a3aed0;
+}
+
+.event-title-cell {
+  color: #1b2559;
+  font-weight: 600;
+}
+
+.time-cell {
+  color: #4318ff;
+  font-weight: 700;
+}
+
+.badge-success {
+  background: #e6fff5;
+  color: #05cd99;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border: 1px solid #05cd99;
+}
+
+.empty-msg {
+  text-align: center;
+  padding: 4rem !important;
+  color: #a3aed0;
+  font-weight: 500;
+}

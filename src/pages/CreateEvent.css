@@ -1,0 +1,67 @@
+.create-event-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #f4f6f8;
+}
+
+.create-event-card {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-event-card h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #2563eb;
+}
+
+.create-event-card input,
+.create-event-card textarea {
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.create-event-card textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.create-event-card input:focus,
+.create-event-card textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+.create-event-card button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.create-event-card button:hover {
+  background: #1e40af;
+}
+
+.create-event-card .error {
+  color: #ef4444;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-align: center;
+}

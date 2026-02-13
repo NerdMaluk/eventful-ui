@@ -1,0 +1,115 @@
+/* MyTickets.css */
+.my-tickets-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tickets-header {
+  margin-bottom: 2rem;
+}
+
+.tickets-header h1 {
+  color: #1b2559;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* TicketCard.css */
+.ticket-item {
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 10px 30px rgba(112, 144, 176, 0.1);
+  border: 1px solid #e0e8ff;
+  min-height: 160px;
+}
+
+.ticket-left {
+  flex: 2;
+  padding: 1.5rem;
+  border-right: 2px dashed #e0e8ff;
+}
+
+.ticket-right {
+  flex: 1;
+  background: #f8faff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.ticket-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #a3aed0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.ticket-event-info h3 {
+  margin: 0.2rem 0 1rem 0;
+  color: #1b2559;
+  font-size: 1.1rem;
+}
+
+.ticket-meta {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.ticket-meta p {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1b2559;
+}
+
+/* QR Code Visual */
+.qr-code-box {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border: 2px solid #4318ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.ticket-status {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #4318ff;
+  background: rgba(67, 24, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+/* Efeito de Bilhete Usado */
+.ticket-used {
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+
+/* O "furo" do bilhete */
+.ticket-cutout {
+  position: absolute;
+  right: 31%; /* Alinhado com o tracejado */
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  background: #f4f7fe; /* Cor do fundo da página */
+  border-radius: 50%;
+}

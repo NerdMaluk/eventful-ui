@@ -1,0 +1,188 @@
+/* ================================================= */
+/* CONFIGURAÇÃO GERAL DA PÁGINA                     */
+/* ================================================= */
+.analytics-page {
+  padding: 2.5rem;
+  background-color: #f4f7fe; /* Fundo levemente azulado para destacar os cards */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1b2559; /* Azul escuro corporativo */
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ================================================= */
+/* GRID E STAT CARDS (RESTAURANDO SUAS CORES)       */
+/* ================================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Base do Card */
+.stat-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: none;
+  box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Cores específicas dos seus Cards */
+.stat-card.blue .stat-icon-container {
+  background-color: #e0e8ff;
+  color: #4318ff; /* Seu azul */
+}
+
+.stat-card.green .stat-icon-container {
+  background-color: #e2f9ef;
+  color: #05cd99; /* Seu verde */
+}
+
+.stat-card.yellow .stat-icon-container {
+  background-color: #fff9e6;
+  color: #ffb547; /* Seu amarelo/laranja */
+}
+
+.stat-card.purple .stat-icon-container {
+  background-color: #f4f0ff;
+  color: #7033ff; /* Seu roxo */
+}
+
+.stat-icon-container {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #a3aed0; /* Cinza suave para o label */
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1b2559;
+  margin: 0;
+}
+
+/* ================================================= */
+/* TABELA PERFORMANCE (ESTILO DARK DA IMAGEM)       */
+/* ================================================= */
+.table-container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1b2559;
+  margin-bottom: 1.5rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+.dark-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+
+.dark-table thead {
+  background-color: #f4f7fe;
+}
+
+.dark-table th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #8f9bba;
+  text-transform: uppercase;
+}
+
+
+.dark-table tbody {
+  background-color: #0b1437;
+}
+
+.dark-table tr {
+  border-bottom: 1px solid #1b254b;
+  background-color: #111c44;
+}
+
+
+.dark-table td {
+  padding: 16px 20px;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.dark-table td.text-gray {
+  color: #a3aed0;
+}
+
+/* Barra de Progresso (Fill Rate) */
+.progress-bar-container {
+  width: 100px;
+  height: 8px;
+  background-color: #1b254b;
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.progress-bar-fill {
+  background-color: #4318ff; /* Azul Morabeza */
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+.fill-text {
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+/* Status Loading */
+.loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #4318ff;
+  font-weight: bold;
+}
+
