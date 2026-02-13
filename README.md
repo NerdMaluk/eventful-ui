@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+Project Report: Eventful – Modern Event Ticketing Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Executive Summary
+   Eventful is a full-stack web application designed to streamline event management and ticket purchasing. The platform allows organizers to create events and enables users to discover and purchase tickets through a secure, automated system. The core value proposition is the seamless integration between payment processing and instant digital ticket issuance.
 
-Currently, two official plugins are available:
+2. System Architecture
+   The application is built using a modern, decoupled architecture to ensure scalability and maintainability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2.1 Technology Stack
+Frontend: React/Next.js (Tailwind CSS for styling).
 
-## React Compiler
+Backend: NestJS (Node.js framework) providing a RESTful API.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Database: PostgreSQL/MySQL managed via Prisma ORM.
 
-## Expanding the ESLint configuration
+Authentication: JWT (JSON Web Tokens) with Passport.js strategy.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Payment Gateway: Paystack API.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+DevOps/Tooling: Ngrok for webhook tunneling and Swagger for API documentation.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. Core Modules & Features
+   3.1 Authentication & Security
+   JWT Implementation: Secure user sessions using Bearer tokens.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Role-Based Access: Differentiation between regular users and event organizers.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Bcrypt Encryption: Secure hashing for user passwords.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3.2 Event Management
+CRUD operations for events (Create, Read, Update, Delete).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Real-time availability tracking for tickets.
+
+Metadata management (Dates, Location, Pricing, Organizer info).
+
+3.3 Payment & Automated Ticketing (The "Core" Engine)
+The most critical part of the system is the Payment Webhook integration:
+
+Asynchronous Processing: The system doesn't rely on the frontend to confirm a sale; it listens directly to the Paystack server.
+
+Cryptographic Verification: Uses HMAC SHA512 to verify that incoming payment notifications are authentic.
+
+Automated Fulfillment: Upon a charge.success event, the system automatically triggers the TicketsService to generate a unique ticket for the user.
+
+4. Database Schema (Data Modeling)
+   The database is structured to maintain referential integrity:
+
+User: Stores profiles and authentication data.
+
+Event: Contains event details, capacity, and pricing.
+
+Ticket: Connects a User to an Event, storing a unique payment reference and the purchase price.
+
+5. Technical Challenges & Overcoming Obstacles
+   During development, several key challenges were addressed:
+
+Webhook Tunneling: Solved using Ngrok to allow a local development server to receive real-time POST requests from the Paystack cloud.
+
+Dependency Injection: Managed complex service interactions (e.g., PaymentsController requiring TicketsService) by structuring NestJS modules correctly.
+
+Auth Bypass for Webhooks: Implemented a custom @Public() decorator to allow external payment notifications to bypass JWT security filters while maintaining overall system safety.
+
+6. Conclusion
+   The Eventful platform successfully demonstrates a production-ready approach to event ticketing. By automating the payment-to-issuance pipeline, the application reduces manual overhead and provides a reliable, secure experience for both organizers and attendees.
